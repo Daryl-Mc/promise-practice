@@ -8,16 +8,22 @@ function colorSwitcher(textContent, background, color){
     return new Promise ((resolve, reject) => {
         output.style.background = background;
         switchBtn.textContent = textContent;
-        resolve(`Color switched to ${color}`)
+        resolve(`Color switched to ${color }`)
     })
 }
 
+function clearOutput(){
+    output.textContent = "Output : "
+}
 
 function switcher(){
     if(green){
         colorSwitcher("Blue", "blue", "Blue")
         .then((message) => {
             console.log(message)
+            clearOutput();
+            output.textContent += message
+            output.style.color = "white"
         }).catch((error) => {
             console.log(error)
         })
@@ -29,6 +35,9 @@ function switcher(){
         colorSwitcher("Red", "red", "Red" )
         .then((message) => {
             console.log(message);
+            clearOutput();
+            output.textContent += message
+            output.style.color = "white"
         }) .catch ((error) => {
             console.log(error);
         })
@@ -38,6 +47,9 @@ function switcher(){
         colorSwitcher("Green", "green", "Green")
         .then((message) => {
             console.log(message)
+            clearOutput();
+            output.textContent += message
+            output.style.color = "white"
         }) .catch((error) => {
             console.log(error)
         })
